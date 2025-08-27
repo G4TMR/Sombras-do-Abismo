@@ -1,42 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap');
 
-/* --- Solução Definitiva para Rolagem Lateral --- */
-* {
-    max-width: 100%;
+/* --- Solução definitiva para rolagem lateral e traço branco --- */
+html, body {
     box-sizing: border-box;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
     overflow-x: hidden;
+    background-color: #121212;
 }
 
-/* --- ESTILOS GLOBAIS E DE FUNDO --- */
 body {
-    background-color: #121212;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%232e2e2e' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
     background-size: auto;
     background-position: center;
     background-attachment: fixed;
-    
     color: #f0f0f0;
     font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
     line-height: 1.6;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden; /* Evita a rolagem padrão da página */
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
 }
 
+/* --- Overlay de fundo --- */
 .background-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background-color: rgba(0, 0, 0, 0.7);
     z-index: -1;
+    overflow: hidden;
 }
 
-/* --- ESTILOS DE CABEÇALHO E NAVEGAÇÃO --- */
+/* --- CABEÇALHO E NAVEGAÇÃO --- */
 .home-header {
     text-align: center;
     padding: 1.5rem;
@@ -45,6 +46,7 @@ body {
     background-color: rgba(18, 18, 18, 0.8);
     border-bottom: 1px solid #2a2a2a;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    width: 100%;
 }
 
 .home-header h1 {
@@ -105,36 +107,68 @@ body {
     color: #32cd32;
 }
 
-/* --- LAYOUT HORIZONTAL PARA DESKTOP --- */
+/* --- LAYOUT VERTICAL PARA TODAS AS PÁGINAS --- */
 .main-content {
-    flex-grow: 1;
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    height: 100%;
-    padding: 0;
-    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 0;
+    overflow-x: hidden;
+    overflow-y: visible;
+    min-height: calc(100vh - 120px);
 }
 
 .horizontal-container {
-    display: flex;
-    height: 100%;
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
 }
 
 .full-screen-section {
-    flex: 0 0 100vw;
-    height: calc(100vh - 100px);
-    scroll-snap-align: start;
+    display: none !important;
+}
+
+.full-screen-section.active-section {
+    display: flex !important;
+}
+
+.content-section {
+    display: block;
+}
+
+.wizard-btn {
+    background: #32cd32;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.7rem 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0 0.5rem;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.wizard-btn:hover {
+    background: #228b22;
+    transform: scale(1.05);
+}
+
+.full-screen-section {
+    width: 100%;
+    min-height: 600px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
+    padding: 2rem 0;
     box-sizing: border-box;
     transition: transform 0.5s ease-in-out;
+    overflow: visible;
 }
 
+/* --- BOX DE CONTEÚDO --- */
 .content-box {
     padding: 2.5rem;
     background-color: rgba(24, 24, 24, 0.9);
@@ -145,6 +179,7 @@ body {
     -webkit-backdrop-filter: blur(8px);
     width: 90%;
     max-width: 1200px;
+    overflow: visible;
 }
 
 .content-box h2 {
@@ -158,7 +193,7 @@ body {
     text-shadow: 1px 1px 5px rgba(50, 205, 50, 0.4);
 }
 
-/* --- ESTILOS DE TUTORIAL E SELEÇÃO DE CLASSE --- */
+/* --- TUTORIAL E SELEÇÃO DE CLASSE --- */
 .info-text {
     text-align: center;
     font-style: italic;
@@ -212,7 +247,7 @@ body {
     color: #ccc;
 }
 
-/* --- ESTILOS DA NAVEGAÇÃO DE PASSOS --- */
+/* --- NAVEGAÇÃO DE PASSOS --- */
 .step-navigation {
     display: flex;
     justify-content: center;
@@ -263,7 +298,7 @@ body {
     margin: 0 0.5rem;
 }
 
-/* --- ESTILOS PARA BARRAS DE STATUS --- */
+/* --- BARRAS DE STATUS --- */
 .attributes-step-container {
     display: flex;
     flex-direction: column;
@@ -417,10 +452,12 @@ body {
     text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
 }
 
-/* --- ESTILOS RESPONSIVOS PARA MOBILE --- */
+/* --- RESPONSIVO PARA MOBILE --- */
 @media (max-width: 768px) {
-    body {
-        font-size: 14px;
+    html, body {
+        height: auto;
+        min-width: 100%;
+        max-width: 100%;
         overflow-x: hidden;
     }
 
@@ -443,24 +480,23 @@ body {
     .main-content {
         overflow-x: hidden;
         overflow-y: auto;
-        scroll-snap-type: y mandatory;
-        -webkit-overflow-scrolling: touch;
         height: auto;
+        min-height: 0;
+        padding: 0;
     }
 
     .horizontal-container {
         flex-direction: column;
         height: auto;
+        display: block;
     }
 
     .full-screen-section {
-        flex: 0 0 100%;
+        width: 100%;
         min-height: calc(100vh - 80px);
         padding: 1rem;
         justify-content: flex-start;
-        scroll-snap-align: start;
         height: auto;
-        min-height: 100vh;
         box-sizing: border-box;
     }
     
@@ -476,7 +512,6 @@ body {
         margin-bottom: 1rem;
     }
 
-    /* Estilos para a navegação de passos */
     .step-navigation {
         flex-direction: column;
         gap: 0.5rem;
@@ -503,7 +538,6 @@ body {
         display: none;
     }
 
-    /* Estilos para os cards de classe */
     .class-selection-container {
         flex-direction: column;
         gap: 1.5rem;
@@ -513,7 +547,6 @@ body {
         width: 100%;
     }
 
-    /* Estilos para a seção de atributos */
     .attributes-container {
         margin-top: 1rem;
     }
