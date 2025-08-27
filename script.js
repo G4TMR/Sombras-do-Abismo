@@ -46,14 +46,24 @@ document.addEventListener('DOMContentLoaded', () => {
         classAttributeBar.style.width = `${(parseInt(classAttributeValue.textContent) / maxSpecial) * 100}%`;
     }
 
-    // Navega para a próxima seção horizontalmente e atualiza a navegação
+    // Navega para a próxima seção e atualiza a navegação
     function navigateToSection(index) {
         const mainContent = document.querySelector('.main-content');
-        const scrollPosition = sections[index].offsetLeft;
-        mainContent.scrollTo({
-            left: scrollPosition,
-            behavior: 'smooth'
-        });
+        
+        // Verifica se a tela é maior que 768px para aplicar rolagem horizontal
+        if (window.innerWidth > 768) {
+            const scrollPosition = sections[index].offsetLeft;
+            mainContent.scrollTo({
+                left: scrollPosition,
+                behavior: 'smooth'
+            });
+        } else {
+            // Em telas menores, rolagem vertical simples até a seção
+            sections[index].scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
 
         stepItems.forEach(item => item.classList.remove('active'));
         document.querySelectorAll(`.step-item[data-step="${index + 1}"]`).forEach(item => {
