@@ -98,7 +98,7 @@ body {
     color: #32cd32;
 }
 
-/* --- NOVO LAYOUT HORIZONTAL E CAIXAS DE CONTEÚDO --- */
+/* --- NOVO LAYOUT HORIZONTAL E CAIXAS DE CONTEÚDO (PARA DESKTOP) --- */
 .main-content {
     flex-grow: 1;
     display: flex;
@@ -408,4 +408,141 @@ body {
     font-size: 1.8rem;
     color: #f0f0f0;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+}
+
+/* --- ESTILOS RESPONSIVOS PARA MOBILE --- */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+        overflow-x: hidden;
+    }
+
+    .home-header {
+        padding: 1rem;
+    }
+
+    .home-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .home-header p {
+        font-size: 0.9rem;
+    }
+
+    .home-header nav a {
+        margin: 0 0.8rem;
+    }
+
+    .main-content {
+        overflow-x: hidden;
+        overflow-y: auto;
+        scroll-snap-type: y mandatory;
+        -webkit-overflow-scrolling: touch;
+        height: auto;
+    }
+
+    .horizontal-container {
+        flex-direction: column;
+        height: auto;
+        /* As próximas duas linhas de código fazem o contêiner se alinhar no topo da tela, o que corrige o erro de rolagem. */
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+
+    .full-screen-section {
+        flex: 0 0 100%;
+        min-height: calc(100vh - 80px);
+        padding: 1rem;
+        justify-content: flex-start;
+        scroll-snap-align: start;
+        height: auto;
+        min-height: 100vh;
+        box-sizing: border-box;
+    }
+    
+    .content-box {
+        padding: 1.5rem;
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 2rem;
+    }
+    
+    .content-box h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Estilos para a navegação de passos */
+    .step-navigation {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+        margin-bottom: 1rem;
+        border-bottom: none;
+    }
+    
+    .step-item {
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .step-number {
+        font-size: 1.2rem;
+    }
+
+    .step-label {
+        font-size: 0.9rem;
+    }
+
+    .step-connector {
+        display: none;
+    }
+
+    /* Estilos para os cards de classe */
+    .class-selection-container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .class-card {
+        width: 100%;
+    }
+
+    /* Estilos para a seção de atributos */
+    .attributes-container {
+        margin-top: 1rem;
+    }
+
+    .attribute-group p {
+        font-size: 1rem;
+        min-width: 100px;
+    }
+
+    .attribute-group::before {
+        display: none;
+    }
+
+    .attribute-group .status-bar-container {
+        margin-right: 0.5rem;
+    }
+    
+    .attribute-controls {
+        gap: 3px;
+    }
+    
+    .attribute-controls button {
+        width: 30px;
+        height: 30px;
+        font-size: 1.4rem;
+    }
+    
+    .points-to-distribute {
+        margin-top: 1.5rem;
+        font-size: 1.2rem;
+    }
+    
+    .points-to-distribute span {
+        font-size: 1.6rem;
+    }
 }
