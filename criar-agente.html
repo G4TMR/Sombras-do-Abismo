@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Ficha | Sombras do Abismo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-overlay"></div>
+    <header class="home-header">
+        <h1>Sombras do Abismo</h1>
+        <p>O RPG de Mesa de Terror e Investigação.</p>
+        <nav>
+            <a href="Home.html">Home</a>
+            <a href="agentes.html" class="active-link">Agentes</a>
+            <a href="campanhas.html">Campanhas</a>
+            <a href="ameacas.html">Ameaças</a>
+            <a href="homebrew.html">Homebrew</a>
+            <a href="patente.html">Patente</a>
+        </nav>
+    </header>
+    <main class="main-content">
+        <div class="horizontal-container">
+            <!-- Etapa 1: Escolha de Classe -->
+            <section id="step-1" class="full-screen-section active-section">
+                <div class="content-box">
+                    <h2>Criar Ficha</h2>
+                    <div class="step-navigation">
+                        <span class="step-item active" id="nav-step-1"><span class="step-number">1.</span> <span class="step-label">Escolha de Classe</span></span>
+                        <span class="step-connector"></span>
+                        <span class="step-item" id="nav-step-2"><span class="step-number">2.</span> <span class="step-label">Atributos</span></span>
+                        <span class="step-connector"></span>
+                        <span class="step-item" id="nav-step-3"><span class="step-number">3.</span> <span class="step-label">Personalizar</span></span>
+                    </div>
+                    <p class="info-text">Selecione uma classe para moldar as habilidades e o destino do seu agente.</p>
+                    <div class="class-selection-container">
+                        <div class="class-card" data-class="Artilheiro"><h3>Artilheiro</h3><p>Mestre do combate à distância. Precisão e dano letal são suas marcas.</p></div>
+                        <div class="class-card" data-class="Colosso"><h3>Colosso</h3><p>Uma muralha inabalável. Focado em defesa e proteção de aliados.</p></div>
+                        <div class="class-card" data-class="Arcanista"><h3>Arcanista</h3><p>Canaliza energias arcanas para controlar o campo de batalha.</p></div>
+                        <div class="class-card" data-class="Laminante"><h3>Laminante</h3><p>Ágil e mortal em combate corpo a corpo. Se move como a sombra.</p></div>
+                    </div>
+                </div>
+            </section>
+            <!-- Etapa 2: Atributos -->
+            <section id="step-2" class="full-screen-section">
+                <div class="content-box">
+                    <h2>Atributos</h2>
+                    <div class="step-navigation">
+                        <span class="step-item" id="nav-step-1-2"><span class="step-number">1.</span> <span class="step-label">Escolha de Classe</span></span>
+                        <span class="step-connector"></span>
+                        <span class="step-item active" id="nav-step-2-2"><span class="step-number">2.</span> <span class="step-label">Atributos</span></span>
+                        <span class="step-connector"></span>
+                        <span class="step-item" id="nav-step-3-2"><span class="step-number">3.</span> <span class="step-label">Personalizar</span></span>
+                    </div>
+                    <p class="info-text">Distribua seus pontos e personalize seu agente.</p>
+                    <div class="attributes-container">
+                        <div class="attribute-group" id="hp-group">
+                            <div class="status-bar-container"><div id="hp-bar" class="status-bar"></div></div>
+                            <p>Vida:</p>
+                            <div class="attribute-controls">
+                                <button>-</button>
+                                <span class="attribute-value">100</span>
+                                <button>+</button>
+                            </div>
+                        </div>
+                        <div class="attribute-group" id="defense-group">
+                            <div class="status-bar-container"><div id="defense-bar" class="status-bar"></div></div>
+                            <p>Defesa:</p>
+                            <div class="attribute-controls">
+                                <button>-</button>
+                                <span class="attribute-value">50</span>
+                                <button>+</button>
+                            </div>
+                        </div>
+                        <div class="attribute-group" id="pa-group">
+                            <div class="status-bar-container"><div id="pa-bar" class="status-bar"></div></div>
+                            <p>PA:</p>
+                            <div class="attribute-controls">
+                                <button>-</button>
+                                <span class="attribute-value">3</span>
+                                <button>+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="text-align:center; margin-top:2rem;">
+                        <button id="back-to-class" class="wizard-btn">Voltar</button>
+                        <button id="next-to-customize" class="wizard-btn">Próximo</button>
+                    </div>
+                </div>
+            </section>
+            <!-- Etapa 3: Personalizar -->
+            <section id="step-3" class="full-screen-section">
+                <div class="content-box">
+                    <h2>Personalizar</h2>
+                    <div class="step-navigation">
+                        <span class="step-item" id="nav-step-1-3"><span class="step-number">1.</span> <span class="step-label">Escolha de Classe</span></span>
+                        <span class="step-connector"></span>
+                        <span class="step-item" id="nav-step-2-3"><span class="step-number">2.</span> <span class="step-label">Atributos</span></span>
+                        <span class="step-connector"></span>
+                        <span class="step-item active" id="nav-step-3-3"><span class="step-number">3.</span> <span class="step-label">Personalizar</span></span>
+                    </div>
+                    <p class="info-text">Finalize a ficha do seu agente com nome, aparência e detalhes únicos.</p>
+                    
+                    <div class="personalization-form">
+                        <div class="form-columns">
+                            <div class="form-column">
+                                <div class="form-group">
+                                    <label for="char-name">Personagem</label>
+                                    <input type="text" id="char-name" placeholder="Nome do personagem" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="char-appearance">Aparência</label>
+                                    <textarea id="char-appearance" placeholder="Nome, gênero, idade, descrição física..."></textarea>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="char-personality">Personalidade</label>
+                                    <textarea id="char-personality" placeholder="Traços marcantes, opiniões, ideais..."></textarea>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="char-background">Histórico</label>
+                                    <textarea id="char-background" placeholder="Infância, relação com a família, contato com o Paranormal, eventos bons e ruins..."></textarea>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="char-objective">Objetivo</label>
+                                    <textarea id="char-objective" placeholder="O que seu personagem quer alcançar..."></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="form-column">
+                                <div class="form-group">
+                                    <label for="player-name">Jogador</label>
+                                    <input type="text" id="player-name" placeholder="Nome do jogador">
+                                </div>
+                                
+                                <div class="character-summary">
+                                    <h3>Resumo do Personagem</h3>
+                                    <div class="summary-item">
+                                        <strong>Classe:</strong> <span id="summary-class">Não selecionada</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <strong>Vida:</strong> <span id="summary-vida">100</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <strong>Defesa:</strong> <span id="summary-defesa">50</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <strong>PA:</strong> <span id="summary-pa">3</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align:center; margin-top:2rem;">
+                        <button id="back-to-attributes" class="wizard-btn">Voltar</button>
+                        <button id="finish-wizard" class="wizard-btn">Finalizar</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

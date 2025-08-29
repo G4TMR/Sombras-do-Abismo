@@ -3,149 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criar Ficha | Sombras do Abismo</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    
+    <title>Sombras do Abismo</title>
+    <meta http-equiv="refresh" content="0; url=Home.html">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="background-overlay"></div>
-    
-    <header class="home-header">
-        <h1>Sombras do Abismo</h1>
-        <p>O RPG de Mesa de Terror e Investigação.</p>
-        <nav>
-            <a href="home.html">Início</a>
-            <a href="index.html">Criar Ficha</a>
-            <a href="personagens.html">Meus Agentes</a>
-        </nav>
-    </header>
-
-    <main class="main-content">
-        <div class="horizontal-container">
-            <section id="step-1" class="full-screen-section active-section">
-                <div class="content-box">
-                    <h2>Criar Ficha</h2>
-                    <div class="step-navigation">
-                        <div class="step-item active" data-step="1">
-                            <span class="step-number">1.</span>
-                            <span class="step-label">Escolha de Classe</span>
-                        </div>
-                        <div class="step-connector"></div>
-                        <div class="step-item" data-step="2">
-                            <span class="step-number">2.</span>
-                            <span class="step-label">Atributos</span>
-                        </div>
-                        <div class="step-connector"></div>
-                        <div class="step-item" data-step="3">
-                            <span class="step-number">3.</span>
-                            <span class="step-label">Personalizar</span>
-                        </div>
-                    </div>
-                    <p class="info-text">Selecione uma classe para moldar as habilidades e o destino do seu agente.</p>
-                    <div class="class-selection-container">
-                        <div class="class-card">
-                            <h3>Artilheiro</h3>
-                            <p>Mestre do combate à distância. Precisão e dano letal são suas marcas.</p>
-                        </div>
-                        <div class="class-card">
-                            <h3>Colosso</h3>
-                            <p>Uma muralha inabalável. Focado em defesa e proteção de aliados.</p>
-                        </div>
-                        <div class="class-card">
-                            <h3>Arcanista</h3>
-                            <p>Canaliza energias arcanas para controlar o campo de batalha.</p>
-                        </div>
-                        <div class="class-card">
-                            <h3>Laminante</h3>
-                            <p>Ágil e mortal em combate corpo a corpo. Se move como a sombra.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="step-2" class="full-screen-section">
-                <div class="content-box attributes-step-container">
-                    <h2>Atributos</h2>
-                    <div class="step-navigation">
-                        <div class="step-item" data-step="1">
-                            <span class="step-number">1.</span>
-                            <span class="step-label">Escolha de Classe</span>
-                        </div>
-                        <div class="step-connector"></div>
-                        <div class="step-item active" data-step="2">
-                            <span class="step-number">2.</span>
-                            <span class="step-label">Atributos</span>
-                        </div>
-                        <div class="step-connector"></div>
-                        <div class="step-item" data-step="3">
-                            <span class="step-number">3.</span>
-                            <span class="step-label">Personalizar</span>
-                        </div>
-                    </div>
-                    <p class="info-text">Distribua seus pontos e personalize seu agente.</p>
-                    <div class="attributes-grid">
-                        <div class="attributes-container">
-                            <div class="attribute-group" id="hp-group">
-                                <p>Vida:</p>
-                                <div class="status-bar-container">
-                                    <div id="hp-bar" class="status-bar"></div>
-                                    <span id="hp-value" class="attribute-value">100</span>
-                                </div>
-                                <div class="attribute-controls">
-                                    <button class="attribute-minus-btn" data-attribute="hp">-</button>
-                                    <button class="attribute-plus-btn" data-attribute="hp">+</button>
-                                </div>
-                            </div>
-
-                            <div class="attribute-group" id="defense-group">
-                                <p>Defesa:</p>
-                                <div class="status-bar-container">
-                                    <div id="defense-bar" class="status-bar"></div>
-                                    <span id="defense-value" class="attribute-value">5</span>
-                                </div>
-                                <div class="attribute-controls">
-                                    <button class="attribute-minus-btn" data-attribute="defense">-</button>
-                                    <button class="attribute-plus-btn" data-attribute="defense">+</button>
-                                </div>
-                            </div>
-                            
-                            <div class="attribute-group" id="class-attribute-group">
-                                <p id="class-attribute-label">Atributo de Classe:</p>
-                                <div class="status-bar-container">
-                                    <div id="class-attribute-bar" class="status-bar"></div>
-                                    <span id="class-attribute-value" class="attribute-value">0</span>
-                                </div>
-                                <div class="attribute-controls">
-                                    <button class="attribute-minus-btn" data-attribute="special">-</button>
-                                    <button class="attribute-plus-btn" data-attribute="special">+</button>
-                                </div>
-                            </div>
-                            
-                            <div class="attribute-group" id="pa-group">
-                                <p>Pontos de Ação (PA):</p>
-                                <div class="status-bar-container">
-                                    <div id="pa-bar" class="status-bar"></div>
-                                    <span id="pa-value" class="attribute-value">15</span>
-                                </div>
-                                <div class="attribute-controls">
-                                    <button class="attribute-minus-btn" data-attribute="pa">-</button>
-                                    <button class="attribute-plus-btn" data-attribute="pa">+</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="points-to-distribute">
-                        Pontos para distribuir: <span id="points-to-distribute-value">4</span>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <script src="script.js"></script>
+    <div style="text-align: center; padding: 4rem; color: #f0f0f0;">
+        <h1 style="font-family: 'Bebas Neue', sans-serif; font-size: 3rem; color: #32cd32;">
+            Redirecionando...
+        </h1>
+        <p>Se não for redirecionado automaticamente, <a href="Home.html" style="color: #32cd32;">clique aqui</a>.</p>
+    </div>
 </body>
 </html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha do Personagem | Sombras do Abismo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-overlay"></div>
+    <header class="home-header">
+        <h1>Sombras do Abismo</h1>
+        <p>O RPG de Mesa de Terror e Investigação.</p>
+        <nav>
+            <a href="Home.html">Home</a>
+            <a href="agentes.html" class="active-link">Agentes</a>
+            <a href="campanhas.html">Campanhas</a>
+            <a href="ameacas.html">Ameaças</a>
+            <a href="homebrew.html">Homebrew</a>
+            <a href="patente.html">Patente</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="character-sheet-container">
+            <!-- Header da Ficha -->
+            <div class="character-sheet-header">
+                <div class="character-avatar">
+                    <img src="https://i.pravatar.cc/150?img=1" alt="Avatar do Personagem" id="character-avatar">
+                </div>
+                <div class="character-basic-info">
+                    <div class="info-row">
+                        <div class="info-group">
+                            <label>Personagem</label>
+                            <span id="sheet-char-name">Nome do Personagem</span>
+                        </div>
+                        <div class="info-group">
+                            <label>Jogador</label>
+                            <span id="sheet-player-name">Nome do Jogador</span>
+                        </div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-group">
+                            <label>Origem</label>
+                            <span id="sheet-char-class">Acadêmico</span>
+                        </div>
+                        <div class="info-group">
+                            <label>Classe</label>
+                            <span id="sheet-char-speciality">Especialidade</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="character-actions">
+                    <button class="sheet-btn edit-btn" onclick="editCharacter()">✏️</button>
+                    <button class="sheet-btn settings-btn" onclick="showSettings()">⚙️</button>
+                </div>
+            </div>
+
+            <!-- Conteúdo Principal da Ficha -->
+            <div class="character-sheet-content">
+                <!-- Coluna Esquerda: Atributos e Perícias -->
+                <div class="sheet-left-column">
+                    <!-- Atributos Principais -->
+                    <div class="attributes-section">
+                        <h3 class="section-title">Atributos</h3>
+                        <div class="attributes-wheel">
+                            <div class="attribute-circle" id="attr-for">
+                                <div class="attr-value" id="val-for">1</div>
+                                <div class="attr-label">FOR</div>
+                            </div>
+                            <div class="attribute-circle" id="attr-agi">
+                                <div class="attr-value" id="val-agi">1</div>
+                                <div class="attr-label">AGI</div>
+                            </div>
+                            <div class="attribute-circle" id="attr-int">
+                                <div class="attr-value" id="val-int">1</div>
+                                <div class="attr-label">INT</div>
+                            </div>
+                            <div class="attribute-circle" id="attr-pre">
+                                <div class="attr-value" id="val-pre">1</div>
+                                <div class="attr-label">PRE</div>
+                            </div>
+                            <div class="attribute-circle" id="attr-vig">
+                                <div class="attr-value" id="val-vig">1</div>
+                                <div class="attr-label">VIG</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Status Bars -->
+                    <div class="status-section">
+                        <div class="status-bar-group">
+                            <label>NEX</label>
+                            <div class="status-input-group">
+                                <input type="number" value="5" min="0" max="99">
+                                <span>%</span>
+                            </div>
+                        </div>
+
+                        <div class="status-bar-group vida-group">
+                            <label>VIDA</label>
+                            <div class="status-bar-container">
+                                <div class="status-bar vida-bar" style="width: 100%"></div>
+                                <div class="status-values">
+                                    <span id="vida-atual">17</span>/<span id="vida-max">17</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="status-bar-group sanidade-group">
+                            <label>SANIDADE</label>
+                            <div class="status-bar-container">
+                                <div class="status-bar sanidade-bar" style="width: 100%"></div>
+                                <div class="status-values">
+                                    <span id="sanidade-atual">16</span>/<span id="sanidade-max">16</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="status-bar-group esforco-group">
+                            <label>ESFORÇO</label>
+                            <div class="status-bar-container">
+                                <div class="status-bar esforco-bar" style="width: 100%"></div>
+                                <div class="status-values">
+                                    <span id="esforco-atual">4</span>/<span id="esforco-max">4</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Defesa -->
+                    <div class="defense-section">
+                        <div class="defense-circle">
+                            <div class="defense-value">11</div>
+                            <div class="defense-label">DEFESA</div>
+                            <div class="defense-details">
+                                <span>+10 Agi + 0</span>
+                            </div>
+                        </div>
+                        <div class="defense-stats">
+                            <div class="defense-stat">
+                                <label>BLOQUEIO</label>
+                                <span>0</span>
+                            </div>
+                            <div class="defense-stat">
+                                <label>ESQUIVA</label>
+                                <span>11</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coluna Central: Perícias -->
+                <div class="sheet-center-column">
+                    <div class="skills-section">
+                        <h3 class="section-title">Perícias</h3>
+                        <div class="skills-tabs">
+                            <button class="skill-tab active" data-tab="combat">COMBATE</button>
+                            <button class="skill-tab" data-tab="abilities">HABILIDADES</button>
+                            <button class="skill-tab" data-tab="rituals">RITUAIS</button>
+                            <button class="skill-tab" data-tab="inventory">INVENTÁRIO</button>
+                            <button class="skill-tab" data-tab="description">DESCRIÇÃO</button>
+                        </div>
+
+                        <div class="skills-content" id="combat-content">
+                            <div class="skills-list">
+                                <div class="skill-item">
+                                    <span class="skill-name">Acrobacia</span>
+                                    <span class="skill-attr">(AGI)</span>
+                                    <span class="skill-value">0</span>
+                                    <button class="skill-roll">🎲</button>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Adestramento</span>
+                                    <span class="skill-attr">(PRE)</span>
+                                    <span class="skill-value">0</span>
+                                    <button class="skill-roll">🎲</button>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Artes</span>
+                                    <span class="skill-attr">(PRE)</span>
+                                    <span class="skill-value">0</span>
+                                    <button class="skill-roll">🎲</button>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Atletismo</span>
+                                    <span class="skill-attr">(FOR)</span>
+                                    <span class="skill-value">0</span>
+                                    <button class="skill-roll">🎲</button>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Atualidades</span>
+                                    <span class="skill-attr">(INT)</span>
+                                    <span class="skill-value">5</span>
+                                    <button class="skill-roll">🎲</button>
+                                </div>
+                                <div class="skill-item trained">
+                                    <span class="skill-name">Ciências</span>
+                                    <span class="skill-attr">(INT)</span>
+                                    <span class="skill-value">5</span>
+                                    <button class="skill-roll">🎲</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coluna Direita: Combate e Inventário -->
+                <div class="sheet-right-column">
+                    <div class="combat-section">
+                        <h3 class="section-title">Você ainda não possui ataques</h3>
+                        <button class="add-attack-btn">Novo Ataque</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        // Script específico para a ficha do personagem
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCharacterSheet();
+            setupSkillTabs();
+        });
+
+        function loadCharacterSheet() {
+            // Carrega dados do personagem do localStorage
+            const urlParams = new URLSearchParams(window.location.search);
+            const characterId = urlParams.get('id');
+            
+            if (characterId) {
+                const characters = JSON.parse(localStorage.getItem('sombras-characters') || '[]');
+                const character = characters.find(char => char.id === characterId);
+                
+                if (character) {
+                    populateCharacterSheet(character);
+                }
+            }
+        }
+
+        function populateCharacterSheet(character) {
+            document.getElementById('sheet-char-name').textContent = character.personal.nome || 'Nome não informado';
+            document.getElementById('sheet-player-name').textContent = character.personal.jogador || 'Jogador não informado';
+            document.getElementById('sheet-char-class').textContent = character.class || 'Classe não informada';
+            
+            // Atualiza valores de vida baseados nos atributos
+            document.getElementById('vida-atual').textContent = character.attributes.vida;
+            document.getElementById('vida-max').textContent = character.attributes.vida;
+            
+            // Atualiza barra de vida
+            const vidaBar = document.querySelector('.vida-bar');
+            vidaBar.style.width = '100%';
+        }
+
+        function setupSkillTabs() {
+            const tabs = document.querySelectorAll('.skill-tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        }
+
+        function editCharacter() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const characterId = urlParams.get('id');
+            if (characterId) {
+                window.location.href = `criar-agente.html?edit=${characterId}`;
+            }
+        }
+
+        function showSettings() {
+            alert('Configurações em desenvolvimento!');
+        }
+    </script>
+</body>
+</html>
